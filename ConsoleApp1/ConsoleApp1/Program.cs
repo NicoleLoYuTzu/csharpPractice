@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exercise9;
+using System;
 
 namespace ConsoleApp1
 {
@@ -10,7 +11,9 @@ namespace ConsoleApp1
             //DisplayChemicalSymbols();
 
             // 第二個功能：模擬擲兩個骰子並計算和
-            SimulateDiceRoll();
+            //SimulateDiceRoll();
+
+            cards();
         }
 
         // 第一個功能：顯示化學元素符號
@@ -55,6 +58,26 @@ namespace ConsoleApp1
             Console.WriteLine("Die 2 TopSide: " + die2.TopSide);
             int sum = die1.TopSide + die2.TopSide;
             Console.WriteLine("Sum of Dice: " + sum);
+        }
+
+        private static void cards() {
+            // create a new deck and tell the deck to print itself
+            Deck deck = new Deck();
+            deck.Print();
+            Console.WriteLine();
+
+            // tell the deck to shuffle and print itself
+            deck.Shuffle();
+            deck.Print();
+            Console.WriteLine();
+
+            // take the top card from the deck and print the card rank and suit
+            Card card0 = deck.TakeTopCard();
+            Console.WriteLine("First Card: " + card0.Rank + " of " + card0.Suit);
+
+            // take the top card from the deck and print the card rank and suit
+            Card card1 = deck.TakeTopCard();
+            Console.WriteLine("Second Card: " + card1.Rank + " of " + card1.Suit);
         }
     }
 }
